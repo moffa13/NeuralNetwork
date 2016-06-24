@@ -10,14 +10,14 @@ using namespace std;
 int main(){
 	
 	
-	vector<unsigned> model = { 2, 10, 1 };
+	vector<unsigned> model = { 2, 4, 1 };
 
 
-	Network n = Network::read("test.txt");
+	//Network n = Network::read("test.txt");
 
-	//Network n(model);
+	Network n(model);
 
-	//TrainingUtils::additionTraining(n, 200);
+	TrainingUtils::additionTraining(n, 200);
 
 
 
