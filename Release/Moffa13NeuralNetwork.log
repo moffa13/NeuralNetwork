@@ -1,0 +1,12 @@
+﻿  Connection.cpp
+  main.cpp
+  Network.cpp
+  Neuron.cpp
+  TrainingUtils.cpp
+TrainingUtils.cpp(72): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+TrainingUtils.cpp(118): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+  utils.cpp
+  Génération de code en cours
+  All 569 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Fin de la génération du code
+  Moffa13NeuralNetwork.vcxproj -> M:\ONE DRIVE REMOTE\OD\OneDrive\Documents\C++ projects\Moffa13NeuralNetwork\Release\Moffa13NeuralNetwork.exe
