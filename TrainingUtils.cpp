@@ -1,36 +1,7 @@
 #include "TrainingUtils.h"
 #include <vector>
 #include <iostream>
-
-/*cout << "Test " << i + 1 << " of " << testsToCreate << endl
-			<< "First input is " << firstInput[i] << endl
-			<< "Second input is " << secondInput[i] << endl
-			<< "Got value is " << results[0] << endl
-			<< "Expected value is " << output[i] << endl
-			<< "Network rate error is " << roundf(n.getError() * 100000) / 100000 << endl << endl;*/
-
-
-			/*for (unsigned i = 0; i < testsToCreate; ++i) {
-
-			double total = 1 - utils::random();
-
-			double n1;
-
-			do {
-
-			n1 = utils::random();
-
-			} while (n1 > total);
-
-			double n2 = total - n1;
-
-			firstInput.push_back(n1);
-			secondInput.push_back(n2);
-			output.push_back(total);
-
-
-			}*/
-
+#include "utils.h"
 
 namespace TrainingUtils {
 
@@ -69,7 +40,7 @@ namespace TrainingUtils {
 
 	}
 
-	void additionTraining(Network &network, unsigned testsNumber) {
+	void xorTraining(Network &network, unsigned testsNumber) {
 
 		vector<double> firstInput;
 		vector<double> secondInput;
@@ -90,7 +61,7 @@ namespace TrainingUtils {
 		for (unsigned i = 0; i < testsNumber; ++i) {
 
 			network.feedForward({ firstInput[i], secondInput[i] });
-			
+
 			network.getResults(results);
 
 			cout << "Test " << i + 1 << " of " << testsNumber << endl
@@ -100,9 +71,55 @@ namespace TrainingUtils {
 				<< "Expected value is " << output[i] << endl
 				<< "Network rate error is " << roundf(network.getError() * 100000) / 100000 << endl << endl;
 
-			network.training({results[0]});
+			network.training({ results[0] });
 
 		}
+	}
+
+		void additionTraining(Network &network, unsigned testsNumber) {
+
+			vector<double> firstInput;
+			vector<double> secondInput;
+			vector<double> output;
+			vector<double> results = {};
+
+			for (unsigned i = 0; i < testsNumber; ++i) {
+
+				double total = 1 - utils::random();
+
+				double n1;
+
+				do {
+
+					n1 = utils::random();
+
+				} while (n1 > total);
+
+				double n2 = total - n1;
+
+				firstInput.push_back(n1);
+				secondInput.push_back(n2);
+				output.push_back(total);
+
+
+			}
+
+			for (unsigned i = 0; i < testsNumber; ++i) {
+
+				network.feedForward({ firstInput[i], secondInput[i] });
+
+				network.getResults(results);
+
+				cout << "Test " << i + 1 << " of " << testsNumber << endl
+					<< "First input is " << firstInput[i] << endl
+					<< "Second input is " << secondInput[i] << endl
+					<< "Got value is " << results[0] << endl
+					<< "Expected value is " << output[i] << endl
+					<< "Network rate error is " << roundf(network.getError() * 100000) / 100000 << endl << endl;
+
+				network.training({ results[0] });
+
+			}
 
 	}
 
